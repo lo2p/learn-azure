@@ -1,0 +1,16 @@
+1. Azure PowerShell 모듈 설치
+Install-module -Name Az -AllowClobber
+
+2. Azure Login
+Connect-AzAccount -TenantId <자신의 테넌트 ID>
+
+3. create-winsvr-fe.ps1 실행
+
+4. 공용 IP 확인
+
+5. 원격 데스크톱 연결 -> PowerShell 명령창 실행
+
+6. IIS 설치 및 기본 웹 페이지 설정
+
+7. 웹 서비스 동작 확인
+

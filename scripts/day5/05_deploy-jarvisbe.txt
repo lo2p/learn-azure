@@ -1,0 +1,17 @@
+1. Azure CLI 설치
+https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli
+
+2. Azure CLI 로그인
+az login -t <자신의 테넌트 ID>
+
+3. create-linux-be.azcli 확장자 변경 후 실행
+- Windows : *.ps1
+- Linux / MAC: *.sh 
+
+4. 프라이빗 IP 확인
+
+5. vmjarvismaster에 RDP 연결 후 vmjarvisbe SSH 연결 
+
+6. NGINX 설치 및 기본 웹 페이지 설정
+
+7. 웹 서비스 동작 확인

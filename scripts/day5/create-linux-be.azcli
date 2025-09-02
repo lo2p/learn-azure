@@ -1,0 +1,35 @@
+#0. 공통
+$location = "koreacentral"
+
+#1. 리소스 그룹
+$rg = $(az group list --query "[?contains(name, 'hall')].name" -o tsv)
+
+#2. 가상 네트워크
+$vnet = $(az network vnet list --query "[?contains(name, 'hall')].name" -o tsv)
+$subnet = $(az network vnet subnet list -g $rg --vnet-name $vnet --query "[?contains(name, 'jarvis')].name" -o tsv)
+
+#4. 네트워크 보안 그룹
+az network nsg create -g $rg -n nsg-vmjarvisbe -l $location
+
+#5. 공용 IP 주소와 NSG가 연결된 가상 네트워크 카드 만들기
+az network nic create -g $rg --vnet-name $vnet --subnet $subnet -n nic-02-vmjarvisbe --network-security-group nsg-vmjarvisbe
+
+#6. 가상 머신 만들기
+az vm create -n vmjarvisbe -g $rg --admin-username tony --authentication-type ssh --generate-ssh-keys --image Ubuntu2204 --nics nic-02-vmjarvisbe --size Standard_DS1_v2
+
+
+#7. 가상 머신 연결 (컨트롤 VM에서)
+ren $home\.ssh\id_rsa vmjarvisbe_key
+#$pvIp = $(az network nic list -g rg-hallofarmor --query "[?contains(name, 'nic-02')].ipConfigurations[].privateIPAddress" -o tsv)
+
+#ssh -i ~/.ssh/vmjarvisbe_key tony@$pvIp
+
+#8. NGINX 설치 및 샘플 페이지 생성
+# 패키지 소스 업데이트
+#sudo apt-get -y update
+
+# NGINX 설치
+#sudo apt-get -y install nginx
+
+# index.html 파일 만들기
+#sudo sh -c 'echo "Running Jarvis Foundation Models from host $(hostname)" > /var/www/html/index.html'

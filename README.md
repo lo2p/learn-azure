@@ -18,3 +18,5 @@ AI MSP 베스핀글로벌의 멀티클라우드(AWS·Azure·GCP·NCP) 엔지니�
 [DNS](https://www.notion.so/DNS-2615cf967b1b80eaa05cf4152e4b5703?source=copy_link)
 
 [Connectivity and Security](https://www.notion.so/Connectivity-and-Security-2615cf967b1b803698dcccbc2b67ea70?source=copy_link)
+
+[Network](https://www.notion.so/Network-2625cf967b1b803fbe1bf4428e62ea3f?source=copy_link)
