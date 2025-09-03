@@ -20,3 +20,5 @@ AI MSP 베스핀글로벌의 멀티클라우드(AWS·Azure·GCP·NCP) 엔지니�
 [Connectivity and Security](https://www.notion.so/Connectivity-and-Security-2615cf967b1b803698dcccbc2b67ea70?source=copy_link)
 
 [Network](https://www.notion.so/Network-2625cf967b1b803fbe1bf4428e62ea3f?source=copy_link)
+
+[PowerShell & Azure CLI](https://www.notion.so/Azure-CLI-2635cf967b1b80bdb971d6233636e961?source=copy_link)
