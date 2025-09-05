@@ -26,3 +26,5 @@ AI MSP 베스핀글로벌의 멀티클라우드(AWS·Azure·GCP·NCP) 엔지니�
 [Azure App](https://www.notion.so/Azure-App-2645cf967b1b80f482c1fc3c08844724?source=copy_link)
 
 **Practice**
+
+[Sandwich Store](https://github.com/lo2p/learn-azure/tree/main/practices)
