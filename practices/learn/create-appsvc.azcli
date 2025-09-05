@@ -1,0 +1,18 @@
+# 리소스 그룹
+az group create -n <resource group> -l <location>
+
+# 앱 서비스 요금제
+#az appservice plan create -n asp-linux -g <resource group> --is-linux --number-of-workers 1 --sku B1
+az appservice plan create -n asp-windows -g <resource group> --number-of-workers 1 --sku B1
+
+# 런타임 스택 확인
+#az webapp list-runtimes --os-type windows
+
+# 앱 서비스
+#az webapp create -g <resource group> -p asp-linux -n appgbmk --runtime "NODE:22-lts"
+az webapp create -g <resource group> -p asp-linux -n webmk --runtime "dotnet:8" --public-network-access enabled # add application insights skip
+az webapp create -g <resource group> -p asp-linux -n apimk --runtime "dotnet:8" --public-network-access enabled # add application insights skip
+
+# 스토리지
+az storage account create -n 'stimgmk' -g '<resource group>' -l '<location>' --sku Standard_LRS --allow-blob-public-access 'true'
+az storage container create --account-name stimgmk -n images --public-access blob
