@@ -1,0 +1,64 @@
+##[NHN Cloud]##
+0. NHN 클라우드 콘솔 로그인
+https://mce.console.nhncloud.com
+- 등록된 이메일로 2차 인증
+- 리전: 평촌
+
+1. 리눅스 서버 배포
+- 이미지: Ubuntu Server 20.04 LTS
+#루트 블록 스토리지
+- 블록 스토리지 타입: SSD
+# 인스턴스 정보
+- 인스턴스 이름: vmlinuxnhn-[SUFFIX]
+- 인스턴스 타입: m2.c1m2
+- 키페어 : 생성, vmlinuxnhn-[SUFFIX]_key -> 다운로드
+#네트워크
+- 선택된 서브넷: snet-arcdemo
+- 플로팅 IP: 사용
+#보안 그룹
+- 보안 그룹 선택: default
+
+2. 인스턴스 접속
+- 보안 그룹 수신 포트 허용: 22, 443
+- 개인 키 저장 위치 이동
+ssh -i vmlinuxnhn-[SUFFIX]_key.pem ubuntu@<PUB_IP>
+
+##[Azure]##Azure Arc를 사용하여 서버 온 보딩
+3. 전역 검색에서 'Arc'로 검색후 Azure Arc 선택
+4. [Azure Arc 리소스]-[컴퓨터]-[컴퓨터 추가]
+[Azure Arc를 사용하여 서버 추가]
+[단일 서버 추가]-[스크립트 생성]
+<기본 사항>
+- 리소스 그룹: rg-hybrid
+- 지역: koreacentral
+- 운영체제: 리눅스
+- SQL Server 연결: 해제
+- 연결 방법: 퍼블릭 엔드포인트
+
+<실제 위치 태그>
+- Datacenter: NHN-KR2
+- City: SN
+- StateOrDistrict: GG
+- ContryOrRegion: KR
+
+5. 스크립트 다운로드 및 및 실행
+*단계별 실행 후 확인
+
+6. Arc 지원 서버 연결 확인
+- Arc 에이전트 상태: 연결됨
+
+----------------------
+[Troubleshooting]
+#대상 우분투 리눅스 터미널에서 단계별 실행
+https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-portal
+
+#1. Download the installation package.
+wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+
+#2. Install the Azure Connected Machine agent.
+bash ~/Install_linux_azcmagent.sh
+
+#3. After installing the agent, you need to configure it to communicate with the Azure Arc service by running the following command:
+
+azcmagent connect --resource-group "rg-hybrid" --tenant-id "e7609cb2-cd52-4d9d-b833-9b61709e3091" --location "koreacentral" --subscription-id "0e15e5c4-5af5-46fb-9ea3-8c1f11e002d5" --cloud "AzureCloud"
+if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi

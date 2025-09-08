@@ -1,0 +1,47 @@
+##[NHN Cloud]##
+
+1. Windows 서버 배포
+- 이미지: Windows 2022 STD KO
+#루트 블록 스토리지
+- 블록 스토리지 타입: SSD
+# 인스턴스 정보
+- 인스턴스 이름: vmwinnhn-[SUFFIX]
+- 인스턴스 타입: m2.c2m4
+- 키페어 : 생성, vmwinnhn-[SUFFIX]_key -> 다운로드
+#네트워크
+- 선택된 서브넷: snet-arcdemo
+- 플로팅 IP: 사용
+#보안 그룹
+- 보안 그룹 선택: default
+
+2. 인스턴스 접속
+[접속 정보]
+- [연결] 클릭 후 RDP 파일 다운로드
+-> id: Administrator
+- [비밀번호 확인] - "vmwinnhn-[SUFFIX]_key.pem" 입력 후 확인
+-> RDP 연결에 비밀번호 입력 
+
+##[Azure]##Azure Arc를 사용하여 서버 온 보딩
+3. 전역 검색에서 'Arc'로 검색후 Azure Arc 선택
+4. [Azure Arc 리소스]-[컴퓨터]-[컴퓨터 추가]
+[Azure Arc를 사용하여 서버 추가]
+[단일 서버 추가]-[스크립트 생성]
+<기본 사항>
+- 리소스 그룹: rg-hybrid
+- 지역: koreacentral
+- 운영체제: Windows
+- SQL Server 연결: 해제
+- 연결 방법: 퍼블릭 엔드포인트
+
+<실제 위치 태그>
+- Datacenter: NHN-KR2
+- City: SN
+- StateOrDistrict: GG
+- ContryOrRegion: KR
+
+5. 스크립트 다운로드 및 및 실행
+- 원격으로 연결된 Windows 서버에서 PowerShell ISE에서 작업 
+*스크립트 일괄 실행
+
+6. Arc 지원 서버 연결 확인
+- Arc 에이전트 상태: 연결됨
