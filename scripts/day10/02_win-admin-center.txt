@@ -1,0 +1,39 @@
+[Azure Portal]
+1. Azure Arc에 온보딩된 Windows 서버 선택
+
+2. [IAM]-[역할 할당 추가]
+Windows Admin Center Administrator Login
+
+3. [라이선스]-[Windows 서버]
+- Azure 혜택 활성화: 선택
+
+4. [Windows 관리 | Windows Admin Center]
+- [설정] 클릭
+
+5. [Windows Admin Center]
+- [설치] 클릭 
+[라이선스]-[Windows 서버]
+- Azure 혜택 활성화
+
+6. [Windows Admin Center] 
+- [연결] 클릭
+
+7. Windows 서버에 계정 생성
+[Windows Admin Center]-[로컬 사용자 및 그룹]-[사용자]
+- [+새 사용자]
+이름: tony
+전체 이름: Tony Stark
+비밀 번호: Pa55w.rdKTaz
+- [멤버십 관리]-[구성원 자격 관리]
+- 소속 그룹: Administrators, Remote Management Users
+
+8. [Windows Admin Center | 도구]-[PowerShell] 
+사용자: tony
+비밀 번호: Pa55w.rdKTaz
+
+9. [Windows Admin Center | 도구]-[원격 데스크톱] 
+- 사용자: vmwinnhn-[SUFFIX]\tony
+- 비밀 번호: Pa55w.rdKTaz
+- 선택한 자판 배열: 한국어
+- 이 컴퓨터에서 사용자가 제공한 인증서로 자동 연결: 선택
+

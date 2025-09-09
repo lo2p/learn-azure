@@ -17,6 +17,7 @@ AI MSP 베스핀글로벌의 멀티클라우드(AWS·Azure·GCP·NCP) 엔지니�
 - [PowerShell & Azure CLI](https://www.notion.so/Azure-CLI-2635cf967b1b80bdb971d6233636e961?source=copy_link)
 - [Azure App](https://www.notion.so/Azure-App-2645cf967b1b80f482c1fc3c08844724?source=copy_link)
 - [Azure Function & Azure Arc](https://www.notion.so/Azure-Function-2685cf967b1b8071a8e8c8c343b0d569?source=copy_link)
+- [Azure Container Environment](https://www.notion.so/2695cf967b1b80b5856cc9b0116c2b65?source=copy_link)
 
 **Practice**
 

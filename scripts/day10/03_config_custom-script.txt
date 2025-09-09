@@ -1,0 +1,25 @@
+##[Azure Portal]##
+1. 스토리지 계정 만들기
+- 리소스 그룹: rg-hybrid
+- 이름: starc[SUFFIX]
+- 지역: koreacentral
+- 중복: LRS
+
+2. 컨테이너 만들기
+- 이름: scripts
+- 공용 액세스 수준: 프라이빗
+
+3. 스크립트 업로드
+- setup_ubnutu.sh
+
+4. Azure Arc 지원 서버의 [확장] 메뉴에서 [+추가]
+
+5. [Custom Script Extension for Linux - Azure Arc]
+- Script files: setup_ubnutu.sh
+- Command: sh setup_ubuntu.sh
+
+6. Azure Arc 지원 서버의 공용 IP 확인 후 브라우저에서 접속
+
+7. (TODO) 온보딩한 윈도우 서버에 파워셸 스크립트 적용
+- setup_winsvr.ps1
+

@@ -1,0 +1,29 @@
+[vmwin11dev]
+1. azcmagent를 사용한 초기 에이전트 구성 수정
+sudo azcmagent config set incomingconnections.ports 22
+sudo azcmagent config list
+
+2. *.pem 파일 내용 복사
+[Windows 터미널]
+- cd c:\users\tony\.ssh
+cat vmlinuxnhn-[SUFFIX]_key.pem
+
+[Azure 포털]
+3. [Azure Arc]-[서버]-[vmubuntu-nhn-*]
+[설정]-[연결]
+- 사용자 이름: ubuntu
+- SSH 프라이빗 키 위치: 수동으로 삽입
+
+4. [SSH 프라이빗 키]에 2에서복사한 내용 붙여 넣기
+
+5. [브라우저에서 연결] 클릭
+
+6. (CLOUD SHELL)Azure CLI 설치
+- 설치 후 클라우드 셸 종료 
+
+7. ([vmwin11dev-terminal])Azure CLI login
+az login -t <YOUR TENANT>
+
+8. Azure CLI 명령으로 SSH 연결 (3번 하단에서 제공)
+[예시] 
+az ssh arc --subscription <subscription> --resource-group <resource group> --name "vmlinuxnhn" --local-user "ubuntu" --private-key-file <YOUR PRIVATE KEY>
